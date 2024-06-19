@@ -4,11 +4,11 @@ services:
     platform: linux/amd64
     depends_on:
       - polar-postgres
-    image: "catalog-service"
-    container_name: "catalog-service"
+    image: ghcr.io/cloud-native-spring-in-action/catalog-service
+    container_name: catalog-service
     ports:
-      - "9001:9001"
-      - "8001:8001"
+      - 9001:9001
+      - 8001:8001
     environment:
       - BPL_JVM_THREAD_COUNT=50
       - BPL_DEBUG_ENABLED=true
@@ -17,10 +17,11 @@ services:
       - SPRING_PROFILES_ACTIVE=testdata
 
   order-service:
+    platform: linux/amd64
     depends_on:
       - polar-postgres
-    image: "order-service"
-    container_name: "order-service"
+    image: ghcr.io/cloud-native-spring-in-action/order-service
+    container_name: order-service
     ports:
       - 9002:9002
       - 8002:8002
